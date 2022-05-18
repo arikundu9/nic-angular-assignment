@@ -1,27 +1,79 @@
-<mat-toolbar color="primary" [class.mat-elevation-z10]="true">
-  <button mat-button mat-icon-button type="button" mat-button (click)="drawer.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>My App</span>
-</mat-toolbar>
-
-
-
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav p-3" mode="over">
     <mat-list>
-      <mat-list-item> Pepper </mat-list-item>
-      <mat-list-item> Salt </mat-list-item>
-      <mat-list-item> Paprika </mat-list-item>
-     </mat-list>
+      <mat-list-item> Home </mat-list-item>
+      <mat-list-item> About </mat-list-item>
+    </mat-list>
   </mat-drawer>
   <div class="example-sidenav-content">
+
+    <mat-toolbar color="primary" [class.mat-elevation-z10]="true">
+      <button mat-button mat-icon-button type="button" mat-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+    </mat-toolbar>
+
     <div class="container-fluid xp-0">
       <div class="row">
         <div class="col-12">
           <mat-tab-group mat-align-tabs="center" class="bgx">
             <mat-tab label="Home">
-              ksjksjdjasdfkj
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Name</mat-label>
+                  <input matInput>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>State</mat-label>
+                  <mat-select>
+                    <mat-option value="one">First option</mat-option>
+                    <mat-option value="two">Second option</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>District</mat-label>
+                  <mat-select>
+                    <mat-option value="one">First option</mat-option>
+                    <mat-option value="two">Second option</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>City</mat-label>
+                  <mat-select>
+                    <mat-option value="one">First option</mat-option>
+                    <mat-option value="two">Second option</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </p>
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Age</mat-label>
+                  <input matInput type="number" class="example-right-align" placeholder="0">
+                </mat-form-field>
+              </p>
+              <p>
+                <!-- <mat-form-field appearance="outline">
+                  <mat-label>Gender</mat-label>
+                  <mat-radio-group>
+                    <mat-radio-button value="auto">Auto</mat-radio-button>
+                    <mat-radio-button value="always">Always</mat-radio-button>
+                  </mat-radio-group>
+                </mat-form-field> -->
+              </p>
+              <p>
+                <mat-form-field appearance="outline">
+                  <mat-label>Textarea</mat-label>
+                  <textarea matInput></textarea>
+                </mat-form-field>
+              </p>
+
             </mat-tab>
             <mat-tab label="About">
               sjdfjaspofpasj
@@ -32,9 +84,10 @@
         </div>
       </div>
     </div>
+
+    <mat-grid-list cols="1" rowHeight="2:0.0625">
+      <mat-grid-tile class="footer py-3">Arijit Kundu</mat-grid-tile>
+    </mat-grid-list>
+
   </div>
 </mat-drawer-container>
-
-<mat-grid-list cols="1" rowHeight="2:0.0625">
-  <mat-grid-tile class="footer py-3">Arijit Kundu</mat-grid-tile>
-</mat-grid-list>
