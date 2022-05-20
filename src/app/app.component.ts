@@ -12,12 +12,12 @@ export class AppComponent implements OnInit {
   title = 'nic-angular-assignment';
   showFiller=false;
 
-  pname: any;
+  /* pname: any;
   state: any;
   district:any;
   city:any;
   age:any;
-  gender:any;
+  gender:any; */
 
   constructor(private formBuilder: FormBuilder) { }
 
