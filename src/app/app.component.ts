@@ -26,12 +26,12 @@ export class AppComponent implements OnInit {
 
                   ];
 
-  pname: any;
+  /* pname: any;
   state: any;
-  district: any;
-  city: any;
-  age: any;
-  gender: any;
+  district:any;
+  city:any;
+  age:any;
+  gender:any; */
 
   constructor(private formBuilder: FormBuilder) { }
 
