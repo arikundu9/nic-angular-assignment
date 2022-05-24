@@ -61,8 +61,10 @@
                 </p>
                 <p class="mx-3">
                   <mat-radio-group aria-label="Select an option" formControlName="gender">
-                    <mat-radio-button value="1">Option 1</mat-radio-button>
-                    <mat-radio-button value="2">Option 2</mat-radio-button>
+                    <mat-label>Gender: </mat-label>
+                    <mat-radio-button value="1" class="mx-3">Male</mat-radio-button>
+                    <mat-radio-button value="2" class="mx-3">Female</mat-radio-button>
+                    <mat-radio-button value="3" class="mx-3">Other</mat-radio-button>
                   </mat-radio-group>
                 </p>
                 <!-- <p>
@@ -80,7 +82,7 @@
                     <textarea matInput></textarea>
                   </mat-form-field>
                 </p> -->
-                <button mat-button mat-raised-button color="primary" (click)="readForm()">Primary</button>
+                <button mat-button mat-raised-button color="primary" (click)="readForm()">{{ btnText }}</button>
               </form>
 
 
