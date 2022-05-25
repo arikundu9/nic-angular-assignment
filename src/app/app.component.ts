@@ -16,15 +16,40 @@ export class AppComponent implements OnInit {
   showFiller = false;
 
   btnText: string = "Submit";
-  states: any[] = [{ "West Bengal": [
-                                    { "Bankura": ["Bankura", "Bishnupur", "Sonamukhi", "Khatra"] },
-                                    { "Purulia": ["Purulia", "Raghunathpur", "Surulia"] }
+  statesDb: any[] = [{  "name":"West Bengal",
+                        "dists":    [
+                                    { "name":"Bankura", "cities": ["Bankura", "Bishnupur", "Sonamukhi", "Khatra"] },
+                                    { "name":"Purulia", "cities": ["Purulia", "Raghunathpur", "Surulia"] }
                                     ] },
-                    {"Bihar": [
-                                    {},
-                                    {}] }
+                    {   "name":"Bihar",
+                        "dists":    [
+                                    { "name":"Patna", "cities": ["Bhojpur", "Buxar", "Kaimur", "Patna", "Rohtas", "Nalanda"]},
+                                    { "name":"Saran", "cities": [	"Saran", "Siwan" , "Gopalganj"]}
+                                  ] }
 
                   ];
+  distAry:any[] = [];
+  cityAry:any[] = [];
+
+  states:any[] = ["West Bengal","Bihar"];
+  dists:any[] = [
+    ["Bankura","Purulia"],
+    ["Patna","Saran"]
+  ]
+  cities:any[] = [
+    [
+      ["Bankura", "Bishnupur", "Sonamukhi", "Khatra"],
+      ["Purulia", "Raghunathpur", "Surulia"]
+    ],
+    [
+      ["Bhojpur", "Buxar", "Kaimur", "Patna", "Rohtas", "Nalanda"],
+      [	"Saran", "Siwan" , "Gopalganj"]
+    ]
+  ]
+
+  selectedState:any;
+  selectedDist:any;
+
 
   /* pname: any;
   state: any;
@@ -40,14 +65,25 @@ export class AppComponent implements OnInit {
       pname: [''],
       state: [''],
       district: [''],
-      age: [''],
+      pin: [''],
       gender: [''],
-      city: ['']
+      city: [''],
+      designation:[''],
     });
   }
 
   readForm() {
-    console.log('Name:' + this.entryForm.controls.gender.value);
+    console.log('Name:' + this.entryForm.controls.state.value);
 
+  }
+
+  getFirstKey(x:any){
+    var firstKey = Object.keys(x)[0];
+   return  x[firstKey ];
+  }
+
+  onStatesChange(e:any){
+    let s_i = this.entryForm.controls.state.value;
+    this.distAry = this.statesDb[s_i]['dists'];
   }
 }
