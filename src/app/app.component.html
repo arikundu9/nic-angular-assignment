@@ -29,8 +29,8 @@
                 <p>
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>State</mat-label>
-                    <mat-select formControlName="state" matSelect #sT (change)="onStatesChange($event)">
-                      <mat-option *ngFor="let st of statesDb;let i=index" value="{{ i }}">{{ st.name }}</mat-option>
+                    <mat-select formControlName="state" matSelect #sT>
+                      <mat-option *ngFor="let st of states;let i=index" value="{{ i }}">{{ st }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </p>
@@ -38,7 +38,7 @@
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>District</mat-label>
                     <mat-select formControlName="district" matSelect #dT>
-                      <mat-option *ngFor="let dt of distAry;let i=index" value="{{ i }}">{{ dt.name }}</mat-option>
+                      <mat-option *ngFor="let dt of dists;let i=index" value="{{ i }}">{{ dt }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </p>
@@ -46,7 +46,7 @@
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>City</mat-label>
                     <mat-select formControlName="city" matSelect>
-                      <mat-option *ngFor="let ct of cityAry;let i=index" value="{{ i }}">{{ ct }}</mat-option>
+                      <mat-option *ngFor="let ct of cities;let i=index" value="{{ i }}">{{ ct }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </p>
@@ -59,9 +59,7 @@
                 <p class="mx-3">
                   <mat-radio-group aria-label="Select an option" formControlName="gender">
                     <mat-label>Gender: </mat-label>
-                    <mat-radio-button value="1" class="mx-3">Male</mat-radio-button>
-                    <mat-radio-button value="2" class="mx-3">Female</mat-radio-button>
-                    <mat-radio-button value="3" class="mx-3">Other</mat-radio-button>
+                    <mat-radio-button  *ngFor="let g of genders;let i=index" value="{{ i }}" class="mx-3">{{ g }}</mat-radio-button>
                   </mat-radio-group>
                 </p>
                 <p>
@@ -92,7 +90,15 @@
 
             </mat-tab>
             <mat-tab label="About">
-              sjdfjaspofpasj
+              <p><b>Name:  </b>{{ data.name}}</p>
+              <p><b>State:  </b>{{ states[data.state] }}</p>
+              <p><b>District:  </b>{{ dists[data.dist] }}</p>
+              <p><b>City:  </b>{{ cities[data.city] }}</p>
+              <p><b>PIN:  </b>{{ data.pin }}</p>
+              <p><b>Gender:  </b>{{ data.gender }}</p>
+              <p><b>Designation:  </b>{{ data.designation }}</p>
+              <button mat-button mat-raised-button color="accent" class="mr-3" (click)="tabs.selectedIndex=0">Edit</button>
+              <button mat-button mat-raised-button color="primary">Final Submit</button>
             </mat-tab>
           </mat-tab-group>
           <router-outlet></router-outlet>

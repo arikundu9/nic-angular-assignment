@@ -16,40 +16,12 @@ export class AppComponent implements OnInit {
   showFiller = false;
 
   btnText: string = "Submit";
-  statesDb: any[] = [{  "name":"West Bengal",
-                        "dists":    [
-                                    { "name":"Bankura", "cities": ["Bankura", "Bishnupur", "Sonamukhi", "Khatra"] },
-                                    { "name":"Purulia", "cities": ["Purulia", "Raghunathpur", "Surulia"] }
-                                    ] },
-                    {   "name":"Bihar",
-                        "dists":    [
-                                    { "name":"Patna", "cities": ["Bhojpur", "Buxar", "Kaimur", "Patna", "Rohtas", "Nalanda"]},
-                                    { "name":"Saran", "cities": [	"Saran", "Siwan" , "Gopalganj"]}
-                                  ] }
+  states:any[]=["Wset Bengal","Bihar","Jharkhand"];
+  dists:any[]=["Bankura","Purulia","Birbhum","Nadia","Murshidabad"];
+  cities:any[]=["City1","City2","City3"];
+  genders:any[]=["Male","Female","Others"]
 
-                  ];
-  distAry:any[] = [];
-  cityAry:any[] = [];
-
-  states:any[] = ["West Bengal","Bihar"];
-  dists:any[] = [
-    ["Bankura","Purulia"],
-    ["Patna","Saran"]
-  ]
-  cities:any[] = [
-    [
-      ["Bankura", "Bishnupur", "Sonamukhi", "Khatra"],
-      ["Purulia", "Raghunathpur", "Surulia"]
-    ],
-    [
-      ["Bhojpur", "Buxar", "Kaimur", "Patna", "Rohtas", "Nalanda"],
-      [	"Saran", "Siwan" , "Gopalganj"]
-    ]
-  ]
-
-  selectedState:any;
-  selectedDist:any;
-
+  data:any={"name":"","state":"","dist":"","pin":"","gender":"","city":"","designation":""};
 
   /* pname: any;
   state: any;
@@ -73,17 +45,20 @@ export class AppComponent implements OnInit {
   }
 
   readForm() {
-    console.log('Name:' + this.entryForm.controls.state.value);
+    this.data.name = this.entryForm.controls.pname.value;
+    this.data.state = this.entryForm.controls.state.value;
+    this.data.dist = this.entryForm.controls.district.value;
+    this.data.pin = this.entryForm.controls.pin.value;
+    this.data.gender = this.entryForm.controls.gender.value;
+    this.data.city = this.entryForm.controls.city.value;
+    this.data.designation = this.entryForm.controls.designation.value;
+    this.btnText = "Update";
+  }
+  edit(e:any){
 
   }
-
   getFirstKey(x:any){
     var firstKey = Object.keys(x)[0];
    return  x[firstKey ];
-  }
-
-  onStatesChange(e:any){
-    let s_i = this.entryForm.controls.state.value;
-    this.distAry = this.statesDb[s_i]['dists'];
   }
 }
