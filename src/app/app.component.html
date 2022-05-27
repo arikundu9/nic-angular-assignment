@@ -19,53 +19,102 @@
         <div class="col-12">
           <mat-tab-group mat-align-tabs="center" class="bgx py-3" #tabs>
             <mat-tab label="Home">
-              <form [formGroup]="entryForm">
+              <form [formGroup]="entryForm" (ngSubmit)="onSubmit(tabs)">
                 <p>
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Name</mat-label>
-                    <input matInput formControlName="pname">
+                    <input matInput formControlName="pname" id="pname" required>
                   </mat-form-field>
                 </p>
+                <div *ngIf="pname.invalid && (pname.dirty || pname.touched)" class="alert alert-danger">
+                  <div *ngIf="pname.errors?.['required']">
+                    Name is required.
+                  </div>
+                </div>
                 <p>
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>State</mat-label>
-                    <mat-select formControlName="state" matSelect #sT>
+                    <mat-select formControlName="state" matSelect #sT required>
                       <mat-option *ngFor="let st of states;let i=index" value="{{ i }}">{{ st }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </p>
+                <div *ngIf="entryform.state.invalid && (entryform.state.dirty || entryform.state.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="entryform.state.errors?.['required']">
+                    State is required.
+                  </div>
+                </div>
                 <p>
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>District</mat-label>
-                    <mat-select formControlName="district" matSelect #dT>
+                    <mat-select formControlName="district" matSelect #dT required>
                       <mat-option *ngFor="let dt of dists;let i=index" value="{{ i }}">{{ dt }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </p>
+                <div *ngIf="entryform.district.invalid && (entryform.district.dirty || entryform.district.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="entryform.district.errors?.['required']">
+                    District is required.
+                  </div>
+                </div>
                 <p>
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>City</mat-label>
-                    <mat-select formControlName="city" matSelect>
+                    <mat-select formControlName="city" matSelect required>
                       <mat-option *ngFor="let ct of cities;let i=index" value="{{ i }}">{{ ct }}</mat-option>
                     </mat-select>
                   </mat-form-field>
                 </p>
+                <div *ngIf="entryform.city.invalid && (entryform.city.dirty || entryform.city.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="entryform.city.errors?.['required']">
+                    City is required.
+                  </div>
+                </div>
                 <p>
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>PIN</mat-label>
-                    <input matInput type="number" formControlName="pin" class="example-right-align" placeholder="0">
+                    <input matInput type="number" formControlName="pin" class="example-right-align" placeholder="PIN"
+                      required maxlength="6" minlength="6" (keydown)="RestrictPin($event,+pin.value)" #pin>
                   </mat-form-field>
                 </p>
+                <div *ngIf="entryform.pin.invalid && (entryform.pin.dirty || entryform.pin.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="entryform.pin.errors?.['required']">
+                    PIN is required.
+                  </div>
+                  <div *ngIf="entryform.pin.errors?.['maxlength']">
+                    PIN must be exactly 6 in length.
+                  </div>
+                  <div *ngIf="entryform.pin.errors?.['minlength']">
+                    PIN must be exactly 6 in length.
+                  </div>
+                  <div *ngIf="entryform.pin.errors?.['min']">
+                    PIN must be exactly 6 in length min.
+                  </div>
+                  <div *ngIf="entryform.pin.errors?.['max']">
+                    PIN must be exactly 6 in length max.
+                  </div>
+                </div>
                 <p class="mx-3">
-                  <mat-radio-group aria-label="Select an option" formControlName="gender">
+                  <mat-radio-group aria-label="Select an option" formControlName="gender" [required]="true">
                     <mat-label>Gender: </mat-label>
-                    <mat-radio-button  *ngFor="let g of genders;let i=index" value="{{ i }}" class="mx-3">{{ g }}</mat-radio-button>
+                    <mat-radio-button *ngFor="let g of genders;let i=index" value="{{ i }}" class="mx-3">{{ g }}
+                    </mat-radio-button>
                   </mat-radio-group>
                 </p>
+                <div *ngIf="entryform.gender.invalid && (entryform.gender.dirty || entryform.gender.touched)"
+                  class="alert alert-danger">
+                  <div *ngIf="entryform.gender.errors?.['required']">
+                    Gender is required.
+                  </div>
+                </div>
                 <p>
                   <mat-form-field appearance="outline" class="w-100">
                     <mat-label>Designation</mat-label>
-                    <input matInput formControlName="designation">
+                    <input matInput formControlName="designation" required>
                   </mat-form-field>
                 </p>
                 <!-- <p>
@@ -83,22 +132,23 @@
                     <textarea matInput></textarea>
                   </mat-form-field>
                 </p> -->
-                <button mat-button mat-raised-button color="primary" (click)="tabs.selectedIndex=1;readForm()">{{
+                <button mat-button mat-raised-button color="primary" [disabled]="!entryForm.valid">{{
                   btnText }}</button>
               </form>
 
 
             </mat-tab>
             <mat-tab label="About">
-              <p><b>Name:  </b>{{ data.name}}</p>
-              <p><b>State:  </b>{{ states[data.state] }}</p>
-              <p><b>District:  </b>{{ dists[data.dist] }}</p>
-              <p><b>City:  </b>{{ cities[data.city] }}</p>
-              <p><b>PIN:  </b>{{ data.pin }}</p>
-              <p><b>Gender:  </b>{{ data.gender }}</p>
-              <p><b>Designation:  </b>{{ data.designation }}</p>
-              <button mat-button mat-raised-button color="accent" class="mr-3" (click)="tabs.selectedIndex=0">Edit</button>
-              <button mat-button mat-raised-button color="primary">Final Submit</button>
+              <p><b>Name: </b>{{ data.name}}</p>
+              <p><b>State: </b>{{ states[data.state] }}</p>
+              <p><b>District: </b>{{ dists[data.dist] }}</p>
+              <p><b>City: </b>{{ cities[data.city] }}</p>
+              <p><b>PIN: </b>{{ data.pin }}</p>
+              <p><b>Gender: </b>{{ data.gender }}</p>
+              <p><b>Designation: </b>{{ data.designation }}</p>
+              <button mat-button mat-raised-button color="accent" class="mr-3"
+                (click)="tabs.selectedIndex=0">Edit</button>
+              <button mat-button mat-raised-button color="primary" (click)="finalSubmit($event)">Final Submit</button>
             </mat-tab>
           </mat-tab-group>
           <router-outlet></router-outlet>
