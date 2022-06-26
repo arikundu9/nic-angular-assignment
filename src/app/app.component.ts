@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 interface state {
 
@@ -16,40 +16,12 @@ export class AppComponent implements OnInit {
   showFiller = false;
 
   btnText: string = "Submit";
-  statesDb: any[] = [{  "name":"West Bengal",
-                        "dists":    [
-                                    { "name":"Bankura", "cities": ["Bankura", "Bishnupur", "Sonamukhi", "Khatra"] },
-                                    { "name":"Purulia", "cities": ["Purulia", "Raghunathpur", "Surulia"] }
-                                    ] },
-                    {   "name":"Bihar",
-                        "dists":    [
-                                    { "name":"Patna", "cities": ["Bhojpur", "Buxar", "Kaimur", "Patna", "Rohtas", "Nalanda"]},
-                                    { "name":"Saran", "cities": [	"Saran", "Siwan" , "Gopalganj"]}
-                                  ] }
+  states: any[] = ["Wset Bengal", "Bihar", "Jharkhand"];
+  dists: any[] = ["Bankura", "Purulia", "Birbhum", "Nadia", "Murshidabad"];
+  cities: any[] = ["City1", "City2", "City3"];
+  genders: any[] = ["Male", "Female", "Others"]
 
-                  ];
-  distAry:any[] = [];
-  cityAry:any[] = [];
-
-  states:any[] = ["West Bengal","Bihar"];
-  dists:any[] = [
-    ["Bankura","Purulia"],
-    ["Patna","Saran"]
-  ]
-  cities:any[] = [
-    [
-      ["Bankura", "Bishnupur", "Sonamukhi", "Khatra"],
-      ["Purulia", "Raghunathpur", "Surulia"]
-    ],
-    [
-      ["Bhojpur", "Buxar", "Kaimur", "Patna", "Rohtas", "Nalanda"],
-      [	"Saran", "Siwan" , "Gopalganj"]
-    ]
-  ]
-
-  selectedState:any;
-  selectedDist:any;
-
+  data: any = { "name": "", "state": "", "dist": "", "pin": "", "gender": "", "city": "", "designation": "" };
 
   /* pname: any;
   state: any;
@@ -62,28 +34,43 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.entryForm = this.formBuilder.group({
-      pname: [''],
-      state: [''],
-      district: [''],
-      pin: [''],
-      gender: [''],
-      city: [''],
-      designation:[''],
+      pname: [''/*,Validators.required*/],
+      state: [''/*,Validators.required*/],
+      district: [''/*,Validators.required*/],
+      pin: ['',[Validators.max(999999),Validators.min(100000)/*,Validators.required*/]],
+      gender: [''/*,Validators.required*/],
+      city: [''/*,Validators.required*/],
+      designation: [''/*,Validators.required*/],
     });
   }
 
-  readForm() {
-    console.log('Name:' + this.entryForm.controls.state.value);
-
+  onSubmit(tabs: any) {
+    if (this.entryForm.valid) {
+      this.data.name = this.entryForm.controls.pname.value;
+      this.data.state = this.entryForm.controls.state.value;
+      this.data.dist = this.entryForm.controls.district.value;
+      this.data.pin = this.entryForm.controls.pin.value;
+      this.data.gender = this.entryForm.controls.gender.value;
+      this.data.city = this.entryForm.controls.city.value;
+      this.data.designation = this.entryForm.controls.designation.value;
+      console.log(this.data);
+      this.btnText = "Update";
+      tabs.selectedIndex = 1;
+    }
   }
-
-  getFirstKey(x:any){
+  finalSubmit(e: any) {
+    alert(JSON.stringify(this.data));
+  }
+  getFirstKey(x: any) {
     var firstKey = Object.keys(x)[0];
-   return  x[firstKey ];
+    return x[firstKey];
   }
-
-  onStatesChange(e:any){
-    let s_i = this.entryForm.controls.state.value;
-    this.distAry = this.statesDb[s_i]['dists'];
+  RestrictPin(e:Event,pin:number){
+    if(pin>999999){
+      // alert();
+      e.preventDefault();
+    }
   }
+  get pname() { return this.entryForm.controls.pname; }
+  get entryform() { return this.entryForm.controls; }
 }
