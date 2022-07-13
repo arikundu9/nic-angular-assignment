@@ -1,0 +1,38 @@
+<mat-form-field class="full-width">
+    <input
+        matInput
+        type="text"
+        (keyup)="searchList($event)"
+        placeholder="Demand Code"
+        [matAutocomplete]="ddws"
+        formControlName="ddwsearch"
+    />
+    <mat-icon matSuffix>arrow_drop_down</mat-icon>
+    <mat-label>Demand Code</mat-label>
+    <mat-autocomplete
+        #ddws="matAutocomplete"
+        (optionSelected)="onSelectionDone()"
+    >
+        <mat-option
+            class=""
+            *ngFor="let dataElement of dataList"
+            [title]="demand.demandDesc"
+            (onSelectionChange)="onElementSelect($event, dataElement)"
+            [value]="demand.fDemandCd"
+        >
+            {{ demand.fDemandCd }}
+        </mat-option>
+    </mat-autocomplete>
+    <!-- <mat-error *ngIf="budGVKFrm.get('cDemandCode')?.errors?.erArisesDC">
+      Input Demand Code not found
+  </mat-error>
+  <mat-error *ngIf="budGVKFrm.get('cDemandCode')!.invalid">Please select
+      Demand Code
+  </mat-error> -->
+    <mat-error *ngIf="budGVKFrm?.controls?.cDemandCode?.errors?.erArisesDC">
+        Input Demand Code not found
+    </mat-error>
+    <mat-error *ngIf="budGVKFrm?.controls?.cDemandCode?.invalid">
+        Please select Demand Code
+    </mat-error>
+</mat-form-field>
