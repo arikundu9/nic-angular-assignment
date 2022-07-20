@@ -54,3 +54,53 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
 </table>
+
+<button mat-button (click)="onClick()" mat-raised-button>Action</button>
+
+
+<div *ngIf="flagf">
+
+  <table class="table mt-2">
+    <thead>
+        <tr>
+          <th>act</th>
+          <th>name</th>
+          <th>position</th>
+          <th>symbol</th>
+          <th>weight</th>
+          <th>amount</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <div class="w-100" [formGroup]="amtForm">
+            <ng-container formArrayName="amount">
+                <tr *ngFor="let row of clickedRows; let i = index" [formGroupName]="i">
+                    <td style="width: 10%; text-align: center">
+                        <button mat-raised-button color="primary" (click)="deleteRowFrom($event, row)"><i matSuffix class="fa fa-trash"></i></button>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: center">
+                        <!-- <form [formGroup]="agrp(i)"> -->
+                            <mat-form-field appearance="outline" class="max-width: 10%">
+                                <input matInput type="input" formControlName="changeAmt" placeholder="" [value]="row.aA" />
+                            </mat-form-field>
+                        <!-- </form> -->
+                    </td>
+                </tr>
+            </ng-container>
+        </div>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td colspan="7"><strong>Total Redistributed Amount</strong></td>
+            <td>
+                <strong>{{ totalAmt }}</strong>
+            </td>
+        </tr>
+    </tfoot>
+</div>
