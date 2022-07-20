@@ -28,14 +28,23 @@ const ELEMENT_DATA: PeriodicElement[] = [
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-
-    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-    dataSource = new MatTableDataSource(ELEMENT_DATA);
+    displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'selection'];
+    allotSource = new MatTableDataSource<any>(ELEMENT_DATA);
+    clickedRows = new Set<any>();
 
     constructor() { }
 
     ngOnInit(): void {
 
+    }
+
+    masterToggle() {
+        this.isAllSelected() ? this.clickedRows.clear() : this.allotSource.data.forEach((row) => this.clickedRows.add(row)); //TODO: Here insatde of making all selected, make only filterd item selected.
+    }
+
+    isAllSelected() {
+        const numSelected = this.clickedRows.size;
+        const numRows = this.allotSource.data.length;
+        return numSelected === numRows;
     }
 }

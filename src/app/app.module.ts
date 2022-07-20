@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatTableModule } from '@angular/material/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -41,6 +42,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatRadioModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
