@@ -6,7 +6,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-    title: any = "Smart Costing";
     constructor() {}
 
     ngOnInit(): void {}

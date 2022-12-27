@@ -19,8 +19,9 @@ import { MatRadioModule } from '@angular/material/radio';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
+import { MainLayoutComponent } from './components/main-layout/main-layout.component';
 @NgModule({
-    declarations: [AppComponent, LoginComponent],
+    declarations: [AppComponent, LoginComponent, MainLayoutComponent],
     imports: [
         BrowserModule,
         AppRoutingModule,
