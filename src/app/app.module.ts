@@ -20,26 +20,11 @@ import { MatRadioModule } from '@angular/material/radio';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { MainLayoutComponent } from './components/main-layout/main-layout.component';
+import { AddCostingComponent } from './components/add-costing/add-costing.component';
+
 @NgModule({
-    declarations: [AppComponent, LoginComponent, MainLayoutComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatGridListModule,
-        MatTabsModule,
-        MatButtonToggleModule,
-        MatSidenavModule,
-        MatButtonModule,
-        MatListModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        MatInputModule,
-        MatRadioModule,
-        ReactiveFormsModule,
-    ],
+    declarations: [AppComponent, LoginComponent, MainLayoutComponent, AddCostingComponent],
+    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatGridListModule, MatTabsModule, MatButtonToggleModule, MatSidenavModule, MatButtonModule, MatListModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatRadioModule, ReactiveFormsModule],
     providers: [],
     bootstrap: [AppComponent],
 })
