@@ -1,3 +1,8 @@
-<h2>Async Hero Message and AsyncPipe</h2>
-<p>Message: {{ message$ | async }}</p>
-<button type="button" (click)="resend()">Resend</button>
+<mat-tab-group [backgroundColor]="'accent'">
+    <mat-tab label="First">
+        <h2>Async Hero Message and AsyncPipe</h2>
+        <p>Message: {{ message$ | async }}</p>
+        <button type="button" (click)="resend()">Resend</button>
+    </mat-tab>
+    <mat-tab [label]="tab" *ngFor="let tab of lotsOfTabs">Content {{ tab }}</mat-tab>
+</mat-tab-group>
