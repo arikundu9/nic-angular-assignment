@@ -8,3 +8,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Datepicker SCSS file. */
 @import "~ngx-bootstrap/datepicker/bs-datepicker";
+
+
+.mat-toolbar-multiple-rows,.mat-toolbar-row{
+    height: 50px;
+    min-height: 50px;
+}
+.mat-tab-label{
+    height: 35px !important;
+    // min-width: auto !important;
+    min-width: 100px !important;
+    padding: 0 !important;
+}
+
+.mat-tab-label .mat-tab-label-content{
+    justify-content: left !important;
+}
+.mat-tab-label-active{
+    background-color: #0000003f;
+    border-radius: 50% 50% 0 0 !important;
+}
