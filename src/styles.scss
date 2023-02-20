@@ -11,8 +11,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .mat-toolbar-multiple-rows,.mat-toolbar-row{
-    height: 50px;
-    min-height: 50px;
+    height: 40px;
+    min-height: 40px;
 }
 .mat-tab-label{
     height: 35px !important;
@@ -25,6 +25,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     justify-content: left !important;
 }
 .mat-tab-label-active{
-    background-color: #0000003f;
-    border-radius: 50% 50% 0 0 !important;
+    background-color: #c2185b4f;
+    // border-radius: 50% 50% 0 0 !important;
+    box-shadow: 0 0.5rem 0.8rem #00000080 !important;
+    border-radius: 3px 3px 0px 0px !important;
 }
