@@ -8,6 +8,7 @@ import { map, take } from 'rxjs/operators';
     styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
+    C: any = console;
     lotsOfTabs = new Array(30).fill(0).map((_, index) => `Tab ${index}`);
     message$: Observable<string>;
 
