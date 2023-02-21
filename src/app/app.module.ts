@@ -16,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
@@ -24,7 +25,7 @@ import { AddCostingComponent } from './components/add-costing/add-costing.compon
 
 @NgModule({
     declarations: [AppComponent, LoginComponent, MainLayoutComponent, AddCostingComponent],
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatGridListModule, MatTabsModule, MatButtonToggleModule, MatSidenavModule, MatButtonModule, MatListModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatRadioModule, ReactiveFormsModule],
+    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatGridListModule, MatTabsModule, MatButtonToggleModule, MatSidenavModule, MatButtonModule, MatListModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatRadioModule, ReactiveFormsModule, MatMenuModule],
     providers: [],
     bootstrap: [AppComponent],
 })

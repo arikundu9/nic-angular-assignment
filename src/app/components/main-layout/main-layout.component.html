@@ -6,9 +6,13 @@
             </button>
             <span routerLink="/">{{ title }}</span>
             <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" [matMenuTriggerFor]="settingsMenu">
                 <mat-icon>settings</mat-icon>
             </button>
+            <mat-menu #settingsMenu="matMenu">
+                <button mat-menu-item>Item 1</button>
+                <button mat-menu-item>Item 2</button>
+            </mat-menu>
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
                 <mat-icon>power_settings_new</mat-icon>
             </button>
