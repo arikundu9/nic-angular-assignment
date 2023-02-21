@@ -6,20 +6,34 @@ import { TabsComponentComponent } from './components/tabs-component/tabs-compone
 
 const routes: Routes = [
     { path: '', component: MainLayoutComponent, children: [
-            { path: 'login', component: TabsComponentComponent,
-                children: [
-                    {
-                        path: '',
-                        component: LoginComponent,
-                        outlet: 'tab_1'
-                    },
-                    {
-                        path: '',
-                        component: MainLayoutComponent,
-                        outlet: 'tab_2'
-                    }
-                ]
-            }
+        { path: 'login', component: LoginComponent,
+            children: [
+                {
+                    path: '',
+                    component: LoginComponent,
+                    outlet: 'tab_1'
+                },
+                {
+                    path: '',
+                    component: MainLayoutComponent,
+                    outlet: 'tab_2'
+                }
+            ]
+        },
+        { path: 'tabs', component: TabsComponentComponent,
+            children: [
+                {
+                    path: '',
+                    component: LoginComponent,
+                    outlet: 'tab_1'
+                },
+                {
+                    path: '',
+                    component: MainLayoutComponent,
+                    outlet: 'tab_2'
+                }
+            ]
+        }
         ]
     }];
 

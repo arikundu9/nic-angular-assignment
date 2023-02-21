@@ -36,6 +36,10 @@
                 <mat-icon class="mat-18">perm_identity</mat-icon>&nbsp;&nbsp;&nbsp;
                 <div matListItemTitle>Login</div>
             </mat-list-item>
+            <mat-list-item routerLink="/tabs">
+                <mat-icon class="mat-18">tab</mat-icon>&nbsp;&nbsp;&nbsp;
+                <div matListItemTitle>Tabs</div>
+            </mat-list-item>
             <mat-list-item *ngFor="let folder of folders">
                 <mat-icon matListItemIcon>description</mat-icon>&nbsp;&nbsp;&nbsp;
                 <div matListItemTitle>{{ folder.name }}</div>
