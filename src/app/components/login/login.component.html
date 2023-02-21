@@ -6,7 +6,7 @@
                 <div class="col">
                     <h2>Async Hero Message and AsyncPipe</h2>
                     <p>Message: {{ message$ | async }}</p>
-                    <button type="button" (click)="resend()">Resend</button>
+                    <button mat-button type="button" (click)="resend()">Replay</button>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
         <ng-template mat-tab-label>
             {{ tab }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button mat-button class="tab_close_btn" (click)="lotsOfTabs.splice(i, 1)">
-                <mat-icon>close</mat-icon>
+                <mat-icon>clear</mat-icon>
             </button>
         </ng-template>
         <div class="container p-2 mt-4 c-box">
