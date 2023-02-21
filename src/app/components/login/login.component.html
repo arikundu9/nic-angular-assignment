@@ -1,18 +1,28 @@
 <mat-tab-group [backgroundColor]="'accent'" #tabGroup="matTabGroup" (scroll)="C.log()" (contextmenu)="lotsOfTabs.push('work N')">
     <mat-tab label="First" (scroll)="C.log()">
         <ng-template mat-tab-label>First</ng-template>
-        <h2>Async Hero Message and AsyncPipe</h2>
-        <p>Message: {{ message$ | async }}</p>
-        <button type="button" (click)="resend()">Resend</button>
+        <div class="container rb">
+            <div class="row">
+                <div class="col">
+                    <h2>Async Hero Message and AsyncPipe</h2>
+                    <p>Message: {{ message$ | async }}</p>
+                    <button type="button" (click)="resend()">Resend</button>
+                </div>
+            </div>
+        </div>
     </mat-tab>
     <mat-tab *ngFor="let tab of lotsOfTabs; let i = index" (scroll)="C.log()">
         <ng-template mat-tab-label>
             {{ tab }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button mat-button class="tab_close_btn" (click)="lotsOfTabs.splice(i,1)">
+            <button mat-button class="tab_close_btn" (click)="lotsOfTabs.splice(i, 1)">
                 <mat-icon>close</mat-icon>
             </button>
         </ng-template>
-        Content {{ tab }}
+        <div class="container rb">
+            <div class="row">
+                <div class="col">Content {{ tab }}</div>
+            </div>
+        </div>
     </mat-tab>
     <!-- <mat-tab label="[+]"><button (click)="lotsOfTabs.push('name')"></button></mat-tab> -->
 </mat-tab-group>
