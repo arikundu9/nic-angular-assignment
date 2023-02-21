@@ -1,4 +1,4 @@
-<mat-tab-group [backgroundColor]="'accent'" #tabGroup="matTabGroup" (scroll)="C.log()" (contextmenu)="lotsOfTabs.push('work N')" class="mat-elevation-z4">
+<mat-tab-group [backgroundColor]="'accent'" #tabGroup="matTabGroup" (scroll)="C.log()" (contextmenu)="lotsOfTabs.push('work N');$event.preventDefault();" class="mat-elevation-z4">
     <mat-tab label="First" (scroll)="C.log()">
         <ng-template mat-tab-label>First</ng-template>
         <div class="container p-2 mt-4 c-box">
@@ -13,9 +13,10 @@
     </mat-tab>
     <mat-tab *ngFor="let tab of lotsOfTabs; let i = index" (scroll)="C.log()">
         <ng-template mat-tab-label>
+            <mat-icon class="pl-1">apps</mat-icon>&nbsp;
             {{ tab }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button mat-button class="tab_close_btn" (click)="lotsOfTabs.splice(i, 1)">
-                <mat-icon>clear</mat-icon>
+            <button mat-button class="tab_close_btn p-0 pr-1" (click)="lotsOfTabs.splice(i, 1)">
+                <mat-icon>close</mat-icon>
             </button>
         </ng-template>
         <div class="container p-2 mt-4 c-box">

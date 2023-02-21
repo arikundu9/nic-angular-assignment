@@ -29,14 +29,16 @@ body::-webkit-scrollbar {
 .mat-tab-label{
     height: 35px !important;
     // min-width: auto !important;
-    min-width: 100px !important;
+    min-width: 130px !important;
     padding-right: 0 !important;
+    padding-left: 0px !important;
     border-left: 1px solid black;
     border-right: 1px solid white;
 }
 
 .mat-tab-label .mat-tab-label-content{
-    justify-content: left !important;
+    justify-content: space-around !important;
+    min-width: 130px;
 }
 .mat-tab-label-active{
     // background-color: #c2185b4f;
@@ -52,6 +54,7 @@ body::-webkit-scrollbar {
 }
 .tab_close_btn{
     z-index: 100;
+    min-width: 0 !important;
 }
 .mat-toolbar-row{
     padding: 0 !important;
