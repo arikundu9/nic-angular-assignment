@@ -19,15 +19,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     height: 35px !important;
     // min-width: auto !important;
     min-width: 100px !important;
-    padding: 0 !important;
+    padding-right: 0 !important;
+    border-left: 1px solid black;
+    border-right: 1px solid white;
 }
 
 .mat-tab-label .mat-tab-label-content{
     justify-content: left !important;
 }
 .mat-tab-label-active{
-    background-color: #c2185b4f;
+    // background-color: #c2185b4f;
     // border-radius: 50% 50% 0 0 !important;
+    // border: 0;
+}
+.mat-ink-bar{
+    background-color: #ffffff6e !important;
     box-shadow: 0 0.5rem 0.8rem #00000080 !important;
     border-radius: 3px 3px 0px 0px !important;
+    height: 50px !important;
+    z-index: 10;
+}
+.tab_close_btn{
+    z-index: 100;
 }

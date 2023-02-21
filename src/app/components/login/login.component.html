@@ -1,9 +1,18 @@
-<mat-tab-group [backgroundColor]="'accent'" #tabGroup="matTabGroup" (scroll)="C.log()" (click)="lotsOfTabs.push('NewFile.txt')">
+<mat-tab-group [backgroundColor]="'accent'" #tabGroup="matTabGroup" (scroll)="C.log()" (contextmenu)="lotsOfTabs.push('NewFile.txt')">
     <mat-tab label="First" (scroll)="C.log()">
+        <ng-template mat-tab-label>First</ng-template>
         <h2>Async Hero Message and AsyncPipe</h2>
         <p>Message: {{ message$ | async }}</p>
         <button type="button" (click)="resend()">Resend</button>
     </mat-tab>
-    <mat-tab [label]="tab" *ngFor="let tab of lotsOfTabs" (scroll)="C.log()">Content {{ tab }}</mat-tab>
+    <mat-tab *ngFor="let tab of lotsOfTabs" (scroll)="C.log()">
+        <ng-template mat-tab-label>
+            {{ tab }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button mat-button >
+                <mat-icon>close</mat-icon>
+            </button>
+        </ng-template>
+        Content {{ tab }}
+    </mat-tab>
     <!-- <mat-tab label="[+]"><button (click)="lotsOfTabs.push('name')"></button></mat-tab> -->
 </mat-tab-group>
