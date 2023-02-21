@@ -7,18 +7,18 @@
             <span routerLink="/">{{ title }}</span>
             <span class="example-spacer"></span>
             <input matInput placeholder="Search" class="xform-control search_box" />
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="toggleFS($event)" [title]="!isFS ? 'FullScreen' : 'Exit FullScreen'">
+            <button mat-button class="example-icon favorite-icon ml-3" aria-label="Example icon-button with heart icon" (click)="toggleFS($event)" [title]="!isFS ? 'FullScreen' : 'Exit FullScreen'" style="border-left: 1px solid #dbdbdba5; border-right: 1px solid #0000005d; padding: 0 7px; min-width: 0; border-radius: 0;">
                 <mat-icon *ngIf="!isFS">fullscreen</mat-icon>
                 <mat-icon *ngIf="isFS">fullscreen_exit</mat-icon>
             </button>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" [matMenuTriggerFor]="settingsMenu">
+            <button mat-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" [matMenuTriggerFor]="settingsMenu" style="border-left: 1px solid #dbdbdba5; border-right: 1px solid #0000005d; padding: 0 7px; min-width: 0; border-radius: 0;">
                 <mat-icon>settings</mat-icon>
             </button>
             <mat-menu #settingsMenu="matMenu">
                 <button mat-menu-item>Item 1</button>
                 <button mat-menu-item>Item 2</button>
             </mat-menu>
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+            <button mat-button class="example-icon" aria-label="Example icon-button with share icon" style="border-left: 1px solid #dbdbdba5; border-right: 1px solid #0000005d; padding: 0 7px; min-width: 0; border-radius: 0;">
                 <mat-icon>power_settings_new</mat-icon>
             </button>
         </mat-toolbar-row>
