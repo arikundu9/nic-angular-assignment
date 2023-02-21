@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, interval } from 'rxjs';
 import { map, take } from 'rxjs/operators';
 @Component({
-  selector: 'app-tabs-component',
-  templateUrl: './tabs-component.component.html',
-  styleUrls: ['./tabs-component.component.scss']
+    selector: 'app-tabs-component',
+    templateUrl: './tabs-component.component.html',
+    styleUrls: ['./tabs-component.component.scss'],
 })
 export class TabsComponentComponent implements OnInit {
     C: any = console;
