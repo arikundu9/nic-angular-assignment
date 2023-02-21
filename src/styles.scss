@@ -4,6 +4,9 @@
 }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body::-webkit-scrollbar {
+    display: none !important;
+}
 
 /* Importing Bootstrap SCSS file. */
 @import "~bootstrap/scss/bootstrap";
@@ -43,4 +46,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .tab_close_btn{
     z-index: 100;
+}
+.mat-drawer-container{
+    background-color: #ffffff1f;
+}
+.mat-tab-body-wrapper{
+    height: 100vh;
 }

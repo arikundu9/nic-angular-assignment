@@ -1,7 +1,7 @@
 <mat-tab-group [backgroundColor]="'accent'" #tabGroup="matTabGroup" (scroll)="C.log()" (contextmenu)="lotsOfTabs.push('work N')">
     <mat-tab label="First" (scroll)="C.log()">
         <ng-template mat-tab-label>First</ng-template>
-        <div class="container rb">
+        <div class="container p-2 mt-4 c-box">
             <div class="row">
                 <div class="col">
                     <h2>Async Hero Message and AsyncPipe</h2>
@@ -18,7 +18,7 @@
                 <mat-icon>close</mat-icon>
             </button>
         </ng-template>
-        <div class="container rb">
+        <div class="container p-2 mt-4 c-box">
             <div class="row">
                 <div class="col">Content {{ tab }}</div>
             </div>
