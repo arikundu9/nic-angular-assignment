@@ -1,4 +1,4 @@
-<mat-drawer-container class="example-container" autosize>
+<mat-drawer-container class="example-container" autosize [hasBackdrop]="false">
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
@@ -20,7 +20,7 @@
         <!-- <mat-toolbar-row>aaaaaaa</mat-toolbar-row> -->
     </mat-toolbar>
 
-    <mat-drawer #drawer class="example-sidenav" mode="over">
+    <mat-drawer #drawer class="example-sidenav" mode="push">
         <mat-list>
             <div mat-subheader>Menu</div>
             <mat-list-item routerLink="/">
