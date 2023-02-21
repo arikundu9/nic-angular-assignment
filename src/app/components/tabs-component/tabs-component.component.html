@@ -13,7 +13,8 @@
     </mat-tab>
     <mat-tab *ngFor="let tab of lotsOfTabs; let i = index" (scroll)="C.log()">
         <ng-template mat-tab-label>
-            <mat-icon class="pl-1">apps</mat-icon>&nbsp; {{ tab }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-icon class="pl-1">apps</mat-icon>&nbsp;
+            <span [routerLink]="['/tabs']" [state]="{comp: lgcomp, id:1}">{{ tab }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
             <button mat-button class="tab_close_btn p-0 pr-1" (click)="lotsOfTabs.splice(i, 1)">
                 <mat-icon>close</mat-icon>
             </button>
