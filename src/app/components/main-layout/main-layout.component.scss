@@ -10,3 +10,15 @@
 .example-list-wrapping {
     max-width: 500px;
 }
+.search_box{
+    background-color: rgba(212, 212, 212, 0.204);
+    max-height: 70px;
+    border: 1px solid rgba(242, 242, 242, 0.333);
+    font: 1rem sans-serif;
+    padding: 5px;
+    padding-left: 20px;
+    border-radius: 30px;
+}
+.search_box:focus{
+    border: 1px solid red !important;
+}

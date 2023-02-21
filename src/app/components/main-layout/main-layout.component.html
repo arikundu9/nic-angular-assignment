@@ -6,7 +6,8 @@
             </button>
             <span routerLink="/">{{ title }}</span>
             <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="toggleFS($event)" [title]="!isFS ? 'Full Screen' : 'Normal'">
+            <input matInput placeholder="Search" class="xform-control search_box" />
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="toggleFS($event)" [title]="!isFS ? 'FullScreen' : 'Exit FullScreen'">
                 <mat-icon *ngIf="!isFS">fullscreen</mat-icon>
                 <mat-icon *ngIf="isFS">fullscreen_exit</mat-icon>
             </button>
@@ -55,7 +56,7 @@
     </div> -->
 
     <router-outlet></router-outlet>
-    <button class="position-fixed fixed-bottom" style="right: 0;" mat-fab color="warn" aria-label="Example icon button with a home icon" [routerLink]="['/']">
+    <button class="position-fixed fixed-bottom" style="right: 0" mat-fab color="warn" aria-label="Example icon button with a home icon" [routerLink]="['/']">
         <mat-icon>home</mat-icon>
     </button>
 </mat-drawer-container>
