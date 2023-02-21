@@ -4,13 +4,13 @@
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
                 <mat-icon>menu</mat-icon>
             </button>
-            <span>{{ title }}</span>
+            <span routerLink="/">{{ title }}</span>
             <span class="example-spacer"></span>
             <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-                <mat-icon>favorite</mat-icon>
+                <mat-icon>settings</mat-icon>
             </button>
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-                <mat-icon>share</mat-icon>
+                <mat-icon>power_settings_new</mat-icon>
             </button>
         </mat-toolbar-row>
         <!-- <mat-toolbar-row>aaaaaaa</mat-toolbar-row> -->
@@ -18,9 +18,17 @@
 
     <mat-drawer #drawer class="example-sidenav" mode="over">
         <mat-list>
-            <div mat-subheader>Folders</div>
+            <div mat-subheader>Menu</div>
+            <mat-list-item routerLink="/">
+                <mat-icon class="mat-18">home</mat-icon>&nbsp;&nbsp;&nbsp;
+                <div matListItemTitle>Home</div>
+            </mat-list-item>
+            <mat-list-item routerLink="/login">
+                <mat-icon class="mat-18">perm_identity</mat-icon>&nbsp;&nbsp;&nbsp;
+                <div matListItemTitle>Login</div>
+            </mat-list-item>
             <mat-list-item *ngFor="let folder of folders">
-                <mat-icon matListItemIcon>folder</mat-icon>&nbsp;&nbsp;&nbsp;
+                <mat-icon matListItemIcon>description</mat-icon>&nbsp;&nbsp;&nbsp;
                 <div matListItemTitle>{{ folder.name }}</div>
                 <div matListItemLine>{{ folder.updated | date }}</div>
             </mat-list-item>

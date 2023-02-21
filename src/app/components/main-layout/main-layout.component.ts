@@ -10,7 +10,7 @@ export interface Section {
     styleUrls: ['./main-layout.component.scss'],
 })
 export class MainLayoutComponent implements OnInit {
-    title: any = 'Smart Costing';
+    title: any = 'aPanel';
 
     folders: Section[] = [
         {
