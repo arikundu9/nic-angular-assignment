@@ -6,8 +6,9 @@
             </button>
             <span routerLink="/">{{ title }}</span>
             <span class="example-spacer"></span>
-            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="toggleFS($event)">
-                <mat-icon>crop_free</mat-icon>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" (click)="toggleFS($event)" [title]="!isFS ? 'Full Screen' : 'Normal'">
+                <mat-icon *ngIf="!isFS">crop_free</mat-icon>
+                <mat-icon *ngIf="isFS">crop_7_5</mat-icon>
             </button>
             <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" [matMenuTriggerFor]="settingsMenu">
                 <mat-icon>settings</mat-icon>
