@@ -21,7 +21,7 @@ export class TabsComponentComponent implements OnInit {
     lgcomp: any = LoginComponent;
     stateData: any;
     C: any = console;
-    defaultTab:Tab = { title: 'new tab x', comp: DefaultTabComponent };
+    defaultTab:Tab = { title: 'New tab', comp: DefaultTabComponent };
     lotsOfTabs: Tab[] = [this.defaultTab];
     message$: Observable<string>;
     currentComponent: any;
