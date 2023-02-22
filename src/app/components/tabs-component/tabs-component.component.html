@@ -1,4 +1,4 @@
-<mat-tab-group [backgroundColor]="'accent'" #tabGroup="matTabGroup" (scroll)="C.log()" (contextmenu)="lotsOfTabs.push('work N'); $event.preventDefault()" class="mat-elevation-z4">
+<mat-tab-group [backgroundColor]="'accent'" #tabGroup="matTabGroup" (scroll)="C.log()" (contextmenu)="lotsOfTabs.push(defaultTab); $event.preventDefault()" class="mat-elevation-z4">
     <mat-tab label="First" (scroll)="C.log()">
         <ng-template mat-tab-label>First</ng-template>
         <div class="container p-2 mt-4 c-box">
@@ -14,7 +14,7 @@
     <mat-tab *ngFor="let tab of lotsOfTabs; let i = index" (scroll)="C.log()">
         <ng-template mat-tab-label>
             <mat-icon class="pl-1">apps</mat-icon>&nbsp;
-            <span [routerLink]="['/tabs']" [state]="{comp: lgcomp, id:1}">{{ tab }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            {{ tab.title }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button mat-button class="tab_close_btn p-0 pr-1" (click)="lotsOfTabs.splice(i, 1)">
                 <mat-icon>close</mat-icon>
             </button>
@@ -22,9 +22,8 @@
         <div class="container p-2 mt-4 c-box">
             <div class="row">
                 <div class="col">
-                    Content {{ tab }}
+                    Content {{ tab.title }}
                     <ng-container *ngComponentOutlet="currentComponent"></ng-container>
-                    <!-- https://stackblitz.com/edit/angular-ng-component-outlet-example?file=src%2Fapp%2Fapp.component.ts -->
                 </div>
             </div>
         </div>
