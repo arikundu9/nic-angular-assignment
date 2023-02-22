@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, NavigationStart, Routes } from '@angular/router
 import { LoginComponent } from '../login/login.component';
 import { appRoutes } from 'src/app/app-routing.module';
 import { AddCostingComponent } from '../add-costing/add-costing.component';
+import { DefaultTabComponent } from '../default-tab/default-tab.component';
 
 interface Tab {
     title: string;
@@ -20,8 +21,8 @@ export class TabsComponentComponent implements OnInit {
     lgcomp: any = LoginComponent;
     stateData: any;
     C: any = console;
-    defaultTab:Tab = { title: 'new tab', comp: LoginComponent };
-    lotsOfTabs: Tab[] = [{ title: 'tab 1', comp: LoginComponent },{ title: 'tab 2', comp: LoginComponent }];
+    defaultTab:Tab = { title: 'new tab x', comp: DefaultTabComponent };
+    lotsOfTabs: Tab[] = [this.defaultTab];
     message$: Observable<string>;
     currentComponent: any;
 

@@ -1,5 +1,5 @@
 <mat-tab-group [backgroundColor]="'accent'" #tabGroup="matTabGroup" (scroll)="C.log()" (contextmenu)="lotsOfTabs.push(defaultTab); $event.preventDefault()" class="mat-elevation-z4">
-    <mat-tab label="First" (scroll)="C.log()">
+    <!-- <mat-tab label="First" (scroll)="C.log()">
         <ng-template mat-tab-label>First</ng-template>
         <div class="container p-2 mt-4 c-box">
             <div class="row">
@@ -10,7 +10,7 @@
                 </div>
             </div>
         </div>
-    </mat-tab>
+    </mat-tab> -->
     <mat-tab *ngFor="let tab of lotsOfTabs; let i = index" (scroll)="C.log()">
         <ng-template mat-tab-label>
             <mat-icon class="pl-1">apps</mat-icon>&nbsp;
@@ -22,8 +22,7 @@
         <div class="container p-2 mt-4 c-box">
             <div class="row">
                 <div class="col">
-                    Content {{ tab.title }}
-                    <ng-container *ngComponentOutlet="currentComponent"></ng-container>
+                    <ng-container *ngComponentOutlet="tab.comp"></ng-container>
                 </div>
             </div>
         </div>
