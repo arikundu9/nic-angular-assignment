@@ -24,10 +24,11 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { AddCostingComponent } from './components/add-costing/add-costing.component';
 import { TabsComponentComponent } from './components/tabs-component/tabs-component.component';
 import { DefaultTabComponent } from './components/default-tab/default-tab.component';
+import { KeyboardShortcutsModule } from 'ng-keyboard-shortcuts';
 
 @NgModule({
     declarations: [AppComponent, LoginComponent, MainLayoutComponent, AddCostingComponent, TabsComponentComponent, DefaultTabComponent],
-    imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatGridListModule, MatTabsModule, MatButtonToggleModule, MatSidenavModule, MatButtonModule, MatListModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatRadioModule, ReactiveFormsModule, MatMenuModule],
+    imports: [BrowserModule, KeyboardShortcutsModule.forRoot(), AppRoutingModule, BrowserAnimationsModule, MatToolbarModule, MatIconModule, MatGridListModule, MatTabsModule, MatButtonToggleModule, MatSidenavModule, MatButtonModule, MatListModule, MatFormFieldModule, MatSelectModule, MatInputModule, MatRadioModule, ReactiveFormsModule, MatMenuModule],
     providers: [],
     bootstrap: [AppComponent],
 })

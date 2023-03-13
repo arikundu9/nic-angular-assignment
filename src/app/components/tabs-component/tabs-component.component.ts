@@ -6,6 +6,7 @@ import { LoginComponent } from '../login/login.component';
 import { appRoutes } from 'src/app/app-routing.module';
 import { AddCostingComponent } from '../add-costing/add-costing.component';
 import { DefaultTabComponent } from '../default-tab/default-tab.component';
+import { ShortcutInput, ShortcutEventOutput } from 'ng-keyboard-shortcuts';
 
 interface Tab {
     title: string;
@@ -21,10 +22,11 @@ export class TabsComponentComponent implements OnInit {
     lgcomp: any = LoginComponent;
     stateData: any;
     C: any = console;
-    defaultTab:Tab = { title: 'New tab', comp: DefaultTabComponent };
+    defaultTab: Tab = { title: 'New tab', comp: DefaultTabComponent };
     lotsOfTabs: Tab[] = [this.defaultTab];
     message$: Observable<string>;
     currentComponent: any;
+    shortcuts: ShortcutInput[] = [];
 
     private messages = 'Paragraphs are the building blocks of papers. Many students define paragraphs in terms of length: a paragraph is a group of at least five sentences, a paragraph is half a page long, etc. In reality, though, the unity and coherence of ideas among sentences is what constitutes a paragraph. A paragraph is defined as “a group of sentences or a single sentence that forms a unit” (Lunsford and Connors 116). Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing, particularly journalistic styles, a paragraph can be just one sentence long. Ultimately, a paragraph is a sentence or group of sentences that support one main idea. In this handout, we will refer to this as the “controlling idea,” because it controls what happens in the rest of the paragraph.';
     constructor(private router: Router) {
@@ -37,6 +39,30 @@ export class TabsComponentComponent implements OnInit {
 
     ngOnInit(): void {
         console.log(this.lotsOfTabs);
+        this.shortcuts.push(
+            {
+                key: 'q',
+                label: 'Help',
+                description: 'Question mark',
+                command: (e) => console.log('q button mark pressed 2', { e }),
+                preventDefault: true,
+            },
+            {
+                key: ['a up up down down left right left right b a enter'],
+                label: 'Sequences Codes',
+                description: 'a Konami code!',
+                command: (output: ShortcutEventOutput) => console.log('Konami code!!!', output),
+            },
+            {
+                key: ['n t'],
+                label: 'New Tab',
+                description: 'n t',
+                command: (e) => {
+                    this.lotsOfTabs.push(this.defaultTab);
+                },
+                preventDefault: true,
+            }
+        );
     }
 
     resend() {
