@@ -51,8 +51,8 @@ export class MainLayoutComponent implements OnInit {
         this.elem = document.documentElement;
         this.shortcuts.push({
             key: ['cmd + b'],
-            label: 'Help',
-            description: 'Cmd + b',
+            label: 'Keyboard Shortcuts',
+            description: 'Toggle Sidebar',
             command: (e) => {
                 this.input.toggle();
             },

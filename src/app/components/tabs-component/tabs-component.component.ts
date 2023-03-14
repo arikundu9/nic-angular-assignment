@@ -42,7 +42,7 @@ export class TabsComponentComponent implements OnInit {
         this.shortcuts.push(
             {
                 key: 'q',
-                label: 'Help',
+                label: 'Keyboard Shortcuts',
                 description: 'Question mark',
                 command: (e) => console.log('q button mark pressed 2', { e }),
                 preventDefault: true,

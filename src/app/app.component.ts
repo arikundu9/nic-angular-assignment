@@ -14,13 +14,6 @@ export class AppComponent implements OnInit {
     ngOnInit(): void {
         this.shortcuts.push(
             {
-                key: 'q',
-                label: 'Help',
-                description: 'Question mark',
-                command: (e) => console.log('q button mark pressed', { e }),
-                preventDefault: true,
-            },
-            {
                 key: ['up up down down left right left right b a enter'],
                 label: 'Sequences Codes',
                 description: 'Konami code!',
@@ -31,13 +24,6 @@ export class AppComponent implements OnInit {
                 label: 'Sequences Codes',
                 description: 'ARK code!',
                 command: (output: ShortcutEventOutput) => alert('Welcome Mr.ARK'),
-            },
-            {
-                key: ['cmd + g'],
-                label: 'Help',
-                description: 'Cmd + g',
-                command: (e) => console.log(e),
-                preventDefault: true,
             }
         );
     }
