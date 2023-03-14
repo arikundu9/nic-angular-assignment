@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core'
 import { DOCUMENT } from '@angular/common';
 import { ShortcutInput, ShortcutEventOutput } from 'ng-keyboard-shortcuts';
 import { MatDrawer } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 export interface Section {
     name: string;
     updated: Date;
@@ -45,19 +46,37 @@ export class MainLayoutComponent implements OnInit {
         },
     ];
 
-    constructor(@Inject(DOCUMENT) private document: any) {}
+    constructor(@Inject(DOCUMENT) private document: any, private router: Router) {}
 
     ngOnInit(): void {
         this.elem = document.documentElement;
-        this.shortcuts.push({
-            key: ['cmd + b'],
-            label: 'Keyboard Shortcuts',
-            description: 'Toggle Sidebar',
-            command: (e) => {
-                this.input.toggle();
+        this.shortcuts.push(
+            {
+                key: ['cmd + b'],
+                label: 'Keyboard Shortcuts',
+                description: 'Toggle Sidebar',
+                command: (e) => {
+                    this.input.toggle();
+                },
+                preventDefault: true,
             },
-            preventDefault: true,
-        });
+            {
+                key: ['t a b enter'],
+                label: 'Keyboard Shortcuts',
+                description: 'Go To Tabs',
+                command: (output: ShortcutEventOutput) => {
+                    this.router.navigate(['/tabs']);
+                },
+            },
+            {
+                key: ['h o m e enter'],
+                label: 'Keyboard Shortcuts',
+                description: 'Go To Home',
+                command: (output: ShortcutEventOutput) => {
+                    this.router.navigate(['/']);
+                },
+            }
+        );
     }
     toggleFS(e: any) {
         if (this.isFS) {

@@ -55,8 +55,8 @@ export class TabsComponentComponent implements OnInit {
             },
             {
                 key: ['n t'],
-                label: 'New Tab',
-                description: 'n t',
+                label: 'Keyboard Shortcuts',
+                description: 'New Tab',
                 command: (e) => {
                     this.lotsOfTabs.push(this.defaultTab);
                 },
