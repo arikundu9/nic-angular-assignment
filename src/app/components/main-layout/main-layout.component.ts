@@ -1,5 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, ViewChild, ElementRef } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { ShortcutInput, ShortcutEventOutput } from 'ng-keyboard-shortcuts';
+import { MatDrawer } from '@angular/material/sidenav';
 export interface Section {
     name: string;
     updated: Date;
@@ -14,6 +16,9 @@ export class MainLayoutComponent implements OnInit {
     elem: any;
     isFS: boolean = false;
     title: any = 'aPanel';
+    shortcuts: ShortcutInput[] = [];
+    @ViewChild('drawer', { static: true })
+    input!: MatDrawer;
 
     folders: Section[] = [
         {
@@ -44,6 +49,15 @@ export class MainLayoutComponent implements OnInit {
 
     ngOnInit(): void {
         this.elem = document.documentElement;
+        this.shortcuts.push({
+            key: ['cmd + b'],
+            label: 'Help',
+            description: 'Cmd + b',
+            command: (e) => {
+                this.input.toggle();
+            },
+            preventDefault: true,
+        });
     }
     toggleFS(e: any) {
         if (this.isFS) {

@@ -33,9 +33,9 @@ export class AppComponent implements OnInit {
                 command: (output: ShortcutEventOutput) => alert('Welcome Mr.ARK'),
             },
             {
-                key: ['cmd + b'],
+                key: ['cmd + g'],
                 label: 'Help',
-                description: 'Cmd + b',
+                description: 'Cmd + g',
                 command: (e) => console.log(e),
                 preventDefault: true,
             }
